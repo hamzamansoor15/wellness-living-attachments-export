@@ -1,0 +1,7 @@
+.env
+downloads/
+progress.csv
+error.log
+session.json
+node_modules/
+.DS_Store
