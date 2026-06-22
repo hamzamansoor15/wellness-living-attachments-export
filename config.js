@@ -7,7 +7,7 @@ module.exports = {
   BASE_URL: 'https://www.wellnessliving.com',
 
   // Page paths
-  LOGIN_PATH: '/login.html',
+  LOGIN_PATH: '/login',
   ATTACHMENTS_PATH: '/Wl/Profile/Attach/AttachList.html',
   FORMS_REPORT_PATH: '/rs/report-render.html',
 
