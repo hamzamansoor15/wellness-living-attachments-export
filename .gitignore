@@ -5,3 +5,4 @@ error.log
 session.json
 node_modules/
 .DS_Store
+.~lock.*#
