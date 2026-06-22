@@ -18,11 +18,12 @@ const LAUNCH_ARGS = [
 ];
 
 async function launchBrowser() {
+  const headless = process.env.HEADLESS !== 'false';
   const browser = await puppeteerExtra.launch({
-    headless: true,
+    headless,
+    slowMo: headless ? 0 : 50,   // slow down interactions when headed so you can follow along
     args: LAUNCH_ARGS,
     defaultViewport: { width: 1366, height: 768 },
-    // puppeteer downloads its own Chromium — no system Chrome needed.
   });
   return browser;
 }
