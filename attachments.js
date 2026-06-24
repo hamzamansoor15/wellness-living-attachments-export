@@ -41,13 +41,14 @@ async function navigateToAttachmentList(page, uid) {
 // Link extraction
 // ---------------------------------------------------------------------------
 
-// Returns an array of absolute download URLs for all drive-download links.
+// Returns an array of unique absolute download URLs for all drive-download links.
 async function extractDownloadLinks(page) {
   return page.evaluate(() => {
     const anchors = Array.from(document.querySelectorAll('a[href]'));
-    return anchors
+    const hrefs = anchors
       .map((a) => a.href)
       .filter((href) => href.includes('drive-download'));
+    return [...new Set(hrefs)];
   });
 }
 
