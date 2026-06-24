@@ -115,14 +115,14 @@ async function processClient(browser, page, client, downloadDir, progressMap, em
 
   // --- Forms ---
   try {
-    const result = await downloadForms(browser, page, client, downloadDir);
+    const result = await downloadForms(page, client, downloadDir);
     formsFound      = result.found;
     formsDownloaded = result.downloaded;
   } catch (err) {
     if (err instanceof SessionExpiredError) {
       await reAuthenticate(page, email, password);
       // Retry after re-auth.
-      const result = await downloadForms(browser, page, client, downloadDir);
+      const result = await downloadForms(page, client, downloadDir);
       formsFound      = result.found;
       formsDownloaded = result.downloaded;
     } else {
