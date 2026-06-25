@@ -1,5 +1,6 @@
 .env
 downloads/
+logs/
 progress.csv
 error.log
 session.json
