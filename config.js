@@ -19,7 +19,7 @@ module.exports = {
   SESSION_CHECK_PATH: '/rs/profile.html',
 
   // Forms date window — wide range to capture everything.
-  FORMS_DATE_START: '2024-01-01',
+  FORMS_DATE_START: '2018-01-01',
   FORMS_DATE_END: '2031-12-31',
 
   // File system

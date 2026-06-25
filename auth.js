@@ -179,13 +179,20 @@ async function reAuthenticate(page, email, password) {
   const submitBtn = await page.waitForSelector('button[name="b_submit"]', { timeout: 5000 });
   if (!submitBtn) throw new SessionExpiredError('Re-auth: submit button not found');
 
-  await Promise.all([
-    page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 30000 }),
-    submitBtn.click(),
-  ]);
+  await submitBtn.click();
 
-  if (page.url().toLowerCase().includes('login')) {
-    throw new Error('[auth] Re-authentication failed — credentials may have changed.');
+  const deadline = Date.now() + 30000;
+  while (page.url().toLowerCase().includes('/login')) {
+    if (Date.now() > deadline) {
+      throw new Error('[auth] Re-authentication failed — still on login page after 30s. Check credentials.');
+    }
+    await new Promise((r) => setTimeout(r, 400));
+  }
+
+  try {
+    await page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 10000 });
+  } catch (_) {
+    // Navigation already finished — fine.
   }
 
   await randomDelay(DELAYS.AFTER_LOGIN.MIN, DELAYS.AFTER_LOGIN.MAX);
