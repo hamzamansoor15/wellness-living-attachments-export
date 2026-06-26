@@ -40,4 +40,10 @@ async function stealthPage(page) {
   });
 }
 
-module.exports = { launchBrowser, stealthPage };
+async function createWorkerPage(browser) {
+  const page = await browser.newPage();
+  await stealthPage(page);
+  return page;
+}
+
+module.exports = { launchBrowser, stealthPage, createWorkerPage };

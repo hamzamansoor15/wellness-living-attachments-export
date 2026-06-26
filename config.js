@@ -28,6 +28,9 @@ module.exports = {
   PROGRESS_CSV: './progress.csv',
   ERROR_LOG: './error.log',
 
+  // How many parallel browser tabs to use for processing.
+  WORKER_COUNT: parseInt(process.env.WORKER_COUNT || '3', 10),
+
   // How many clients between session-validity checks.
   SESSION_REFRESH_INTERVAL: 200,
 
