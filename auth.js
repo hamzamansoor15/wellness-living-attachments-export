@@ -164,6 +164,13 @@ async function reAuthenticate(page, email, password) {
   console.log('[auth] Session expired — re-authenticating...');
   const loginUrl = `${BASE_URL}${LOGIN_PATH}`;
   await page.goto(loginUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
+
+  // If WL redirected away from /login, the session is still valid — nothing to do.
+  if (!page.url().toLowerCase().includes('/login')) {
+    console.log('[auth] Already authenticated — re-auth skipped.');
+    return;
+  }
+
   await randomDelay(DELAYS.AFTER_NAVIGATION.MIN, DELAYS.AFTER_NAVIGATION.MAX);
 
   const emailField = await page.waitForSelector('input[name="login"]', { timeout: 10000 });
