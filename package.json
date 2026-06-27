@@ -1,7 +1,7 @@
 {
   "name": "wl-migration",
   "version": "1.0.0",
-  "description": "WellnessLiving to Jane App migration — client attachment and form export",
+  "description": "Bulk-export client attachments and completed forms from WellnessLiving via browser automation",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
