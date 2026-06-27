@@ -3,7 +3,11 @@
 require('dotenv').config();
 
 module.exports = {
-  K_BUSINESS: process.env.K_BUSINESS || '643838',
+  K_BUSINESS: (() => {
+    const id = process.env.K_BUSINESS;
+    if (!id) throw new Error('K_BUSINESS is required. Set it in your .env file (see .env.example).');
+    return id;
+  })(),
   BASE_URL: 'https://www.wellnessliving.com',
 
   // Page paths
