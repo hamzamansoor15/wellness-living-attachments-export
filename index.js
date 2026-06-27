@@ -47,13 +47,13 @@ const {
   PROGRESS_CSV,
   DELAYS,
   WORKER_COUNT,
-} = require('./config');
-const { randomDelay, logError, SessionExpiredError } = require('./utils');
-const { launchBrowser, createWorkerPage } = require('./stealth');
-const { promptCredentials, login, reAuthenticate } = require('./auth');
-const { loadProgress, saveProgress, makeRow } = require('./progress');
-const { downloadAttachments } = require('./attachments');
-const { downloadForms } = require('./forms');
+} = require('./src/config');
+const { randomDelay, logError, SessionExpiredError } = require('./src/utils');
+const { launchBrowser, createWorkerPage } = require('./src/stealth');
+const { promptCredentials, login, reAuthenticate } = require('./src/auth');
+const { loadProgress, saveProgress, makeRow } = require('./src/progress');
+const { downloadAttachments } = require('./src/attachments');
+const { downloadForms } = require('./src/forms');
 
 // ---------------------------------------------------------------------------
 // CLI args
