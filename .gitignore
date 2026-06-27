@@ -1,8 +1,10 @@
 .env
+clients.csv
 downloads/
 logs/
 progress.csv
 error.log
+*.log
 session.json
 node_modules/
 .DS_Store
