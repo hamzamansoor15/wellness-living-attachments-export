@@ -19,6 +19,7 @@ WellnessLiving does not provide a way to bulk-download client attachments or com
 
 - [Node.js](https://nodejs.org/) 22 or higher
 - A WellnessLiving staff account with access to client profiles
+- ~300 MB of disk space for Chromium, which Puppeteer downloads automatically on `npm install`
 
 ---
 
@@ -122,6 +123,24 @@ WORKER_COUNT=1 npm start
 **Detailed logs**
 - Per-worker logs: `logs/worker-1.log`, `logs/worker-2.log`, …
 - Error summary: `error.log`
+
+---
+
+---
+
+## Data & privacy
+
+Downloaded files are stored **locally only** and are never uploaded anywhere. It is your responsibility to handle them according to applicable privacy laws and your organization's data policies.
+
+- Never commit `clients.csv`, `progress.csv`, or the `downloads/` folder to version control. All three are excluded by `.gitignore`.
+- Your WellnessLiving credentials are entered at runtime and are never written to disk.
+- Use of this tool must comply with your WellnessLiving subscription terms and any applicable data protection regulations.
+
+---
+
+## Contributing
+
+Pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to set up a local development environment and the contribution guidelines.
 
 ---
 
