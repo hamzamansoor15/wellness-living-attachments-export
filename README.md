@@ -6,6 +6,10 @@ Bulk-export client attachments and completed form responses from WellnessLiving 
 
 WellnessLiving does not provide a way to bulk-download client attachments or completed form responses. This tool drives a real browser session with Puppeteer to navigate each client's profile and download everything, organized per client into a folder structure ready for import into other systems.
 
+![WellnessLiving export automation demo](demo/demo.gif)
+
+<sub>Recorded with sample data (see [demo/demo.js](demo/demo.js)) — no real credentials or client data shown.</sub>
+
 ---
 
 ## What gets downloaded
