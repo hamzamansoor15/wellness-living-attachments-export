@@ -26,6 +26,7 @@
   "scripts": {
     "start": "node index.js",
     "retry": "node index.js --retry-errors",
+    "demo": "node demo/demo.js",
     "test": "echo 'No test suite yet. See CONTRIBUTING.md' && exit 0",
     "lint": "eslint src/ index.js"
   },
