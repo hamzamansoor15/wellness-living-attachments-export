@@ -2,9 +2,17 @@
 
 ![Node](https://img.shields.io/badge/node-%3E%3D22-brightgreen) ![License](https://img.shields.io/badge/license-MIT-blue) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-Bulk-export client attachments and completed form responses from WellnessLiving via browser automation.
+**Migrating off WellnessLiving? There's no export button for client attachments and form responses. This tool builds one.**
 
-WellnessLiving does not provide a way to bulk-download client attachments or completed form responses. This tool drives a real browser session with Puppeteer to navigate each client's profile and download everything, organized per client into a folder structure ready for import into other systems.
+WellnessLiving does not provide a way to bulk-download client attachments or completed form responses. If you're migrating to Jane App, Mindbody, Vagaro, or anywhere else, you're stuck downloading files one client at a time through the browser, for hundreds or thousands of clients.
+
+This tool drives a real browser session with Puppeteer to navigate each client's profile and download everything, organized per client into a folder structure ready for import into other systems.
+
+| | Manual export | This tool |
+|---|---|---|
+| Time for 1,000+ clients | Days of clicking, one client at a time | Runs unattended |
+| Rate limits / bans | Common if done fast | Built-in throttling (`WORKER_COUNT`) |
+| Resumable if interrupted | No, start over | Yes, via `progress.csv` |
 
 ![WellnessLiving export automation demo](demo/demo.gif)
 
